@@ -173,8 +173,6 @@ def extract_details():
 
         extracted_info.append(details)
         contador += 1
-    
-    save_to_json(details)
 
     print('Finalizado!')
 
