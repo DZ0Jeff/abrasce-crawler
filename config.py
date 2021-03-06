@@ -4,12 +4,13 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 
-def setSelenium(console=True):
+def setSelenium(console):
     # configuração do selenium 
     chrome_options = Options()
-    chrome_options.add_argument('--headless')
-    chrome_options.add_argument('--no-sandbox')
-    chrome_options.add_argument('--disable-dev-shm-usage')
+    if console:
+        chrome_options.add_argument('--headless')
+        chrome_options.add_argument('--no-sandbox')
+        chrome_options.add_argument('--disable-dev-shm-usage')
     # evitar detecção anti-bot
     chrome_options.add_argument("--disable-blink-features")
     chrome_options.add_argument('--disable-blink-features=AutomationControlled')

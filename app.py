@@ -9,7 +9,7 @@ from selenium.common.exceptions import NoSuchElementException, ElementClickInter
 global driver
 
 def dynamic_html(url):
-    driver = setSelenium(console=False)
+    driver = setSelenium(True)
     try:
         driver.get(url)
     
@@ -24,9 +24,8 @@ def dynamic_html(url):
 
 
 def load_button(url):
-    driver = setSelenium()
+    driver = setSelenium(False)
     driver.get(url)
-
     
     try:
         for _ in range(0,6):
