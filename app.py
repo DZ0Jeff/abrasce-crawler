@@ -7,6 +7,7 @@ from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException, ElementClickInterceptedException, TimeoutException
 
 global driver
+extracted_info = []
 
 def dynamic_html(url):
     driver = setSelenium(True)
@@ -93,8 +94,6 @@ def read_link():
 
 
 def extract_details():
-    extracted_info = []
-
     print(f"{len(read_link())} links achados")
 
     contador = 1
@@ -202,8 +201,10 @@ if __name__ == "__main__":
         tempo_estimado(start)
 
     except KeyboardInterrupt:
+        save_to_json(extracted_info)
         tempo_estimado(start)
 
     except Exception as error:
+        save_to_json(extracted_info)
         tempo_estimado(start)
         raise
